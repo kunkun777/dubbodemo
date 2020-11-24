@@ -1,6 +1,0 @@
-spring:
-  application:
-    name: dubbo-auto-configure-consumer-sample
-dubbo:
-  registries:
-    address: zookeeper://127.0.0.1:2181

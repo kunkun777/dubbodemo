@@ -12,7 +12,16 @@
         <module>user-api</module>
         <module>user-service</module>
         <module>user-web</module>
+        <module>user-service1</module>
     </modules>
 
 
+    <dependencies>
+        <!--lombok插件-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.10</version>
+        </dependency>
+    </dependencies>
 </project>

@@ -8,8 +8,17 @@
         <outputRelativeToContentRoot value="true" />
         <module name="userservice" />
         <module name="userweb" />
+        <module name="userservice1" />
         <module name="userapi" />
       </profile>
     </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="userapi" options="" />
+      <module name="userservice" options="" />
+      <module name="userservice1" options="" />
+      <module name="userweb" options="" />
+    </option>
   </component>
 </project>
