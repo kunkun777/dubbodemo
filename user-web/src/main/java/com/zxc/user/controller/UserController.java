@@ -2,6 +2,7 @@ package com.zxc.user.controller;
 
 import com.zxc.user.service.UserService;
 import com.zxc.user.service.UserService1;
+import com.zxc.user.service.UserService2;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,10 +12,12 @@ import java.io.IOException;
 @RestController
 public class UserController {
 
-    @Reference(version = "1.0.0",url = "dubbo://127.0.0.1:12345",stub = "com.zxc.stub.serviceStub")
+    @Reference(version = "1.0.0",url = "dubbo://127.0.0.1:12345",retries = 5,cluster = "failover")
     private UserService userService;
     @Reference(version = "1.0.0",url = "dubbo://127.0.0.1:12346")
     private UserService1 userService1;
+    @Reference(version = "1.0.0",url = "dubbo://127.0.0.1:12347")
+    private UserService2 userService2;
 
     @RequestMapping("/hello")
     public String sayHello(){
@@ -31,4 +34,8 @@ public class UserController {
         return userService.getUserAddressList().toString();
     }
 
+    @RequestMapping("/inComplied")
+    public String inComplied(){
+        return userService2.incompled();
+    }
 }

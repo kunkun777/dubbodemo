@@ -1,4 +1,4 @@
 # Project exclude paths
 /user-api/target/
-/user-service/target/
+/user-com.zxc.service/target/
 /user-web/target/

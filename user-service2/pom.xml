@@ -8,8 +8,11 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
-    <artifactId>user-com.zxc.service</artifactId>
+    <properties>
+        <spring-boot.version>2.3.0.RELEASE</spring-boot.version>
+        <dubbo.version>2.7.7</dubbo.version>
+    </properties>
+    <artifactId>user-service2</artifactId>
     <build>
         <plugins>
             <plugin>
@@ -22,11 +25,6 @@
             </plugin>
         </plugins>
     </build>
-
-    <properties>
-        <spring-boot.version>1.5.3.RELEASE</spring-boot.version>
-        <dubbo.version>2.7.7</dubbo.version>
-    </properties>
 
     <dependencyManagement>
         <dependencies>
@@ -69,14 +67,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
     <dependencies>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-hystrix</artifactId>
-            <version>1.4.7.RELEASE</version>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -112,6 +103,24 @@
         <dependency>
             <groupId>org.apache.curator</groupId>
             <artifactId>curator-recipes</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <version>2.3.1.RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo</artifactId>
+            <version>2.7.7</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.14.0</version>
         </dependency>
     </dependencies>
 </project>
