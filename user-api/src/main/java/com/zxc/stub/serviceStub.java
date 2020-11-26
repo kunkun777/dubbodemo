@@ -23,6 +23,6 @@ public class serviceStub implements UserService {
     }
 
     public String sayHello() {
-        return null;
+        return "null";
     }
 }
