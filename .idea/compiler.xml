@@ -7,9 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="userweb" />
-        <module name="userapi" />
         <module name="userservice2" />
         <module name="userservice1" />
+        <module name="userapi" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8" />

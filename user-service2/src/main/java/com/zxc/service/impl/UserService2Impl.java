@@ -7,7 +7,7 @@ import com.zxc.user.service.UserService2;
 public class UserService2Impl implements UserService2 {
 
     @Override
-    public String incompled() {
+    public String incompled(String id) {
             return "这是未完成的服务";
     }
 }
