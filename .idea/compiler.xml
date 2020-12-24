@@ -2,23 +2,30 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="ihrm-company" />
+        <module name="ihrm-api" />
         <module name="userweb" />
+        <module name="userapi" />
+        <module name="ihrm-system" />
         <module name="userservice2" />
         <module name="userservice1" />
-        <module name="userapi" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="8" />
+    <bytecodeTargetLevel target="8">
+      <module name="ihrmsystem" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="userapi" options="" />
-      <module name="userservice1" options="" />
-      <module name="userweb" options="" />
+      <module name="ihrm-api" options="-parameters" />
+      <module name="ihrm-company" options="-parameters" />
+      <module name="ihrm-system" options="-parameters -verbose -bootclasspath &quot;C:/Program Files/Java/jdk1.8.0_241/jre/lib/rt.jar;C:/Program Files/Java/jdk1.8.0_241/jre/lib/jce.jar&quot;" />
+      <module name="ihrmsystem" options="" />
     </option>
   </component>
 </project>

@@ -5,11 +5,17 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/ihrm-api/pom.xml" />
+        <option value="$PROJECT_DIR$/ihrm-company/pom.xml" />
+        <option value="$PROJECT_DIR$/ihrm-system/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/user-service/pom.xml" />
+        <option value="$PROJECT_DIR$/user-service1/pom.xml" />
+        <option value="$PROJECT_DIR$/user-service2/pom.xml" />
+        <option value="$PROJECT_DIR$/user-web/pom.xml" />
       </set>
     </option>
   </component>
