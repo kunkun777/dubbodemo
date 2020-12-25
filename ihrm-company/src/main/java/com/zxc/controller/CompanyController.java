@@ -8,9 +8,9 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
+//@Service(version = "1.0.0",interfaceName = "company_inter")
 @CrossOrigin
 @RestController
 @RequestMapping(value="/company")
