@@ -1,5 +1,6 @@
 package com.zxc.controller;
 
+import com.alibaba.dubbo.config.annotation.Service;
 import com.zxc.common.entity.Result;
 import com.zxc.common.entity.ResultCode;
 import com.zxc.model.company.Company;
@@ -10,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-//@Service(version = "1.0.0",interfaceName = "company_inter")
+@Service(version = "1.0.0",interfaceName = "company_inter")
 @CrossOrigin
 @RestController
 @RequestMapping(value="/company")
