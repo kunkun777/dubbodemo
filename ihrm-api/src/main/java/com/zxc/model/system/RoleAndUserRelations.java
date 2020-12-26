@@ -11,10 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 
-/**
- * @author: hyl
- * @date: 2020/05/25
- **/
 @Entity
 @Table(name = "pe_user_role")
 @Getter

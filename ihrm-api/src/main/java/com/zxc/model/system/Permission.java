@@ -3,8 +3,6 @@ package com.zxc.model.system;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-//import org.hibernate.annotations.DynamicInsert;
-//import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -55,6 +53,4 @@ public class Permission implements Serializable {
         this.code = code;
         this.description = description;
     }
-
-
 }
