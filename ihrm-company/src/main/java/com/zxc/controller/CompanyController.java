@@ -25,7 +25,6 @@ public class CompanyController implements CompanyInter {
     @ApiOperation(value = "保存公司")
     @RequestMapping(value="",method = RequestMethod.POST)
     public Result save(@RequestBody Company company)  {
-
         companyService.add(company);
         return new Result(ResultCode.SUCCESS);
     }
@@ -33,7 +32,6 @@ public class CompanyController implements CompanyInter {
     @ApiOperation(value = "根据id更新企业信息")
     @RequestMapping(value = "/{id}",method = RequestMethod.PUT)
     public Result update(@PathVariable(value="id") String id, @RequestBody Company company ) {
-
         company.setId(id);
         companyService.update(company);
         return new Result(ResultCode.SUCCESS);
@@ -56,6 +54,11 @@ public class CompanyController implements CompanyInter {
         return result;
     }
 
+    @RequestMapping(value = "/testCon",method = RequestMethod.GET)
+    public String testCon() {
+        return "测试company是否联通.";
+    }
+
     @ApiOperation("查询全部企业列表")
     @RequestMapping(value="",method = RequestMethod.GET)
     public Result findAll() {
@@ -73,15 +76,6 @@ public class CompanyController implements CompanyInter {
         company.setState(state);
         companyService.save(company);
         return new Result(ResultCode.SUCCESS);
-    }
-
-
-    public String findCompanyById_(String id){
-//        System.out.println("调用到的id:=====>"+id);
-//        Company company = companyService.findById(id);
-//        Result result = new Result(ResultCode.SUCCESS);
-//        result.setData(company);
-        return "result";
     }
 
 }

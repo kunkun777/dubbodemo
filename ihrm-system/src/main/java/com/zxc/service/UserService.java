@@ -1,8 +1,11 @@
 package com.zxc.service;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.sun.org.apache.xml.internal.security.utils.Base64;
 import com.zxc.common.utils.IdWorker;
 import com.zxc.common.utils.QiniuUploadUtil;
+import com.zxc.inters.CompanyInter;
+import com.zxc.inters.DepartmentInter;
 import com.zxc.model.company.Department;
 import com.zxc.model.system.Role;
 import com.zxc.model.system.User;
@@ -38,8 +41,8 @@ public class UserService {
     @Autowired
     private IdWorker idWorker;
 
-//    @Autowired
-//    private CompanyFeignClient companyFeignClient;
+    @Reference(version = "1.0.0",url="dubbo://127.0.0.1:12340")
+    private DepartmentInter departmentInter;
 
     @Autowired
     private BaiduAiUtil baiduAiUtil;
@@ -165,36 +168,34 @@ public class UserService {
         userDao.save(user);
     }
 
-//    /**
-//     *  批量用户保存
-//     * @param list  用户list
-//     * @param companyId 用户所属公司id
-//     * @param companyName   用户所属公司名称
-//     */
-//    @Transactional
-//    public void saveAll(List<User> list, String companyId, String companyName) {
-//        for (User user : list) {
-//            //默认密码
-//            user.setPassword(new Md5Hash("123456" , user.getMobile() , 3).toString());
-//            //id
-//            user.setId(idWorker.nextId() + "");
-//            //基本属性
-//            user.setCompanyId(companyId);
-//            user.setCompanyName(companyName);
-//            user.setInServiceStatus(1);
-//            user.setEnableState(1);
-//            user.setLevel("user");
-//
-//            //填充部门的属性
-//            Department department = companyFeignClient.findByCode(user.getDepartmentId(), companyId);
-//            if (department != null){
-//                user.setDepartmentId(department.getId());
-//                user.setDepartmentName(department.getName());
-//            }
-//
-//            userDao.save(user);
-//        }
-//    }
+    /**
+     *  批量用户保存
+     * @param list  用户list
+     * @param companyId 用户所属公司id
+     * @param companyName   用户所属公司名称
+     */
+    @Transactional
+    public void saveAll(List<User> list, String companyId, String companyName) {
+        for (User user : list) {
+            //默认密码
+            user.setPassword(new Md5Hash("123456" , user.getMobile() , 3).toString());
+            //id
+            user.setId(idWorker.nextId() + "");
+            //基本属性
+            user.setCompanyId(companyId);
+            user.setCompanyName(companyName);
+            user.setInServiceStatus(1);
+            user.setEnableState(1);
+            user.setLevel("user");
+            //填充部门的属性
+            Department department = departmentInter.findByCode(user.getDepartmentId(), companyId);
+            if (department != null){
+                user.setDepartmentId(department.getId());
+                user.setDepartmentName(department.getName());
+            }
+            userDao.save(user);
+        }
+    }
 
     /**
      *  完成图片处理 (上传到七牛云存储并且注册到百度云AI人脸库中)

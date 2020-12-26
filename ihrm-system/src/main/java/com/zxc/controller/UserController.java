@@ -1,15 +1,12 @@
 package com.zxc.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.TypeReference;
-import com.zxc.common.Constants.Constant;
 import com.zxc.common.controller.BaseController;
 import com.zxc.common.entity.PageResult;
 import com.zxc.common.entity.Result;
 import com.zxc.common.entity.ResultCode;
+import com.zxc.common.poi.ExcelImportUtil;
 import com.zxc.inters.CompanyInter;
-import com.zxc.model.company.Company;
 import com.zxc.model.system.User;
 import com.zxc.model.system.response.ProfileResult;
 import com.zxc.service.UserService;
@@ -22,11 +19,9 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -41,19 +36,20 @@ public class UserController extends BaseController {
     @Reference(version = "1.0.0",url="dubbo://127.0.0.1:12340")
     private CompanyInter companyInter;
 
-    @RequestMapping("/test")
-    public String aaaaaaaaaa(){
-//        System.out.println("调用到这个方法了，"+companyInter.toString());
-//        return companyInter.findCompanyById_("1");
-        return "????就是钓不到？";
+    /**
+     * @Target: 测试是否与company联通
+     */
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public Result test(){
+        System.out.println("调用到这个方法了，"+companyInter.toString());
+        return companyInter.findCompanyById("1");
     }
 
     /**
      * 更新用户图片
-     * @param id
-     * @param file
-     * @return
-     * @throws Exception
+     * @param id String
+     * @param file MultipartFile
+     * @throws Exception Exception
      */
     @RequestMapping("/user/upload/{id}")
     public Result upload(@PathVariable String id , @RequestParam(name = "file") MultipartFile file) throws Exception {
@@ -70,16 +66,16 @@ public class UserController extends BaseController {
         return new Result(ResultCode.SUCCESS , imgUrl);
     }
 
-//    /**
-//     * 导入Excel,添加用户
-//     */
-//    @RequestMapping(value = "/user/import" , method = RequestMethod.POST)
-//    public Result importUser(@RequestParam(name = "file") MultipartFile file) throws Exception {
-//        List<User> list = new ExcelImportUtil(User.class).readExcel(file.getInputStream(), 1, 1);
-//        //3.批量保存用户
-//        userService.saveAll(list , companyId , companyName);
-//        return new Result(ResultCode.SUCCESS);
-//    }
+    /**
+     * 导入Excel,添加用户
+     */
+    @RequestMapping(value = "/user/import" , method = RequestMethod.POST)
+    public Result importUser(@RequestParam(name = "file") MultipartFile file) throws Exception {
+        List<User> list = new ExcelImportUtil(User.class).readExcel(file.getInputStream(), 1, 1);
+        //3.批量保存用户
+        userService.saveAll(list , companyId , companyName);
+        return new Result(ResultCode.SUCCESS);
+    }
 
 
     /**

@@ -8,8 +8,8 @@ spring:
     name: ihrm-company #指定服务名
   #2.数据库连接池
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/ihrm?useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ihrm?serverTimezone=GMT&useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
     username: root
     password: 330124
   redis:

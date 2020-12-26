@@ -19,7 +19,7 @@ public class BaseController {
 
     //使用shiro获取
     //进入控制器之前执行的方法
-    @ModelAttribute
+//    @ModelAttribute
     public void serResAndReq(HttpServletRequest request,HttpServletResponse response){
         this.request = request;
         this.response = response;

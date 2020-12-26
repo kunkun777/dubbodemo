@@ -17,16 +17,20 @@ import java.io.Serializable;
 //@DynamicInsert(true)
 //@DynamicUpdate(true)
 public class Permission implements Serializable {
+
     private static final long serialVersionUID = -4990810027542971546L;
+
     /**
      * 主键
      */
     @Id
     private String id;
+
     /**
      * 权限名称
      */
     private String name;
+
     /**
      * 权限类型 1为菜单 2为功能 3为API
      */

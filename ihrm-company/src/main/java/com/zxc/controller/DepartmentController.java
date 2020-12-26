@@ -3,6 +3,7 @@ package com.zxc.controller;
 import com.zxc.common.controller.BaseController;
 import com.zxc.common.entity.Result;
 import com.zxc.common.entity.ResultCode;
+import com.zxc.inters.DepartmentInter;
 import com.zxc.model.company.Company;
 import com.zxc.model.company.Department;
 import com.zxc.model.company.response.DeptListResult;
@@ -18,7 +19,7 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/company")
 @Api(tags = "Department-controller",description = "About 部门")
-public class DepartmentController extends BaseController {
+public class DepartmentController extends BaseController implements DepartmentInter {
 
     @Autowired
     private DepartmentService departmentService;
@@ -67,6 +68,7 @@ public class DepartmentController extends BaseController {
         return new Result(ResultCode.SUCCESS);
     }
 
+    @Override
     @ApiOperation(value = "根据部门编码和公司id查询部门")
     @RequestMapping(value = "/department/search" , method = RequestMethod.POST)
     public Department findByCode(@RequestParam("code") String code,@RequestParam("companyId") String companyId){

@@ -3,6 +3,8 @@ package com.zxc.common.entity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 /**
  * 数据响应对象
  *    {
@@ -17,7 +19,7 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-public class Result {
+public class Result implements Serializable {
 
     private boolean success;//是否成功
     private Integer code;// 返回码
