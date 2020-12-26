@@ -3,6 +3,7 @@ package com.zxc.controller;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.zxc.common.entity.Result;
 import com.zxc.common.entity.ResultCode;
+import com.zxc.inters.CompanyInter;
 import com.zxc.model.company.Company;
 import com.zxc.service.CompanyService;
 import io.swagger.annotations.Api;
@@ -11,12 +12,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-@Service(version = "1.0.0",interfaceName = "company_inter")
+@Service(version = "1.0.0")
 @CrossOrigin
 @RestController
 @RequestMapping(value="/company")
 @Api(tags = "Company-controller",description = "About 公司")
-public class CompanyController {
+public class CompanyController implements CompanyInter {
 
     @Autowired
     private CompanyService companyService;
@@ -48,6 +49,7 @@ public class CompanyController {
     @ApiOperation(value = "根据id查询企业")
     @RequestMapping(value="/{id}",method = RequestMethod.GET)
     public Result findCompanyById(@PathVariable(value="id") String id){
+        System.out.println("调用到的id:=====>"+id);
         Company company = companyService.findById(id);
         Result result = new Result(ResultCode.SUCCESS);
         result.setData(company);
@@ -72,4 +74,14 @@ public class CompanyController {
         companyService.save(company);
         return new Result(ResultCode.SUCCESS);
     }
+
+
+    public String findCompanyById_(String id){
+//        System.out.println("调用到的id:=====>"+id);
+//        Company company = companyService.findById(id);
+//        Result result = new Result(ResultCode.SUCCESS);
+//        result.setData(company);
+        return "result";
+    }
+
 }

@@ -1,0 +1,60 @@
+#微服务注册到eureka配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://116.62.26.142:6868/eureka/
+  instance:
+    preferIpAddress : true
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
+#服务配置
+server:
+  port: 9002
+#spring配置
+spring:
+  #1.应用配置
+  application:
+    name: ihrm-system #指定服务名
+  #2.数据库连接池
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ihrm?serverTimezone=GMT&useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: 330124
+    hikari:
+      maximum-pool-size: 2
+  redis:
+    host: 116.62.26.142
+    port: 6379
+  #3.JPA
+  jpa:
+    database: MySQL
+    show-sql: true
+    open-in-view: true
+  #4.热部署
+  devtools:
+    restart:
+      enabled: true
+my:
+  appId: 15191935
+  apiKey: cyWSHgas93Vtdmt42OwbW8pu
+  secretKey: yf1GusMvvLBdOnyubfLubNyod9iEDEZW
+  imageType: BASE64
+  groupId: itcast
+  url: http://localhost:8080/#/facelogin
+
+#################dubbo#########################
+# Dubbo Registry 注册中心的地址
+dubbo:
+  registry:
+    address: zookeeper://127.0.0.1:2181
+  application:
+    name: ihrm-system
+#  # 这是dubbo协议上要暴露的接口
+#  protocol:
+#    name: dubbo
+#    port: 12345
+
+
+    ## Dubbo
+    #dubbo.registry.address= zookeeper://127.0.0.1:2181
+#    dubbo.application.name= dubbo-auto-configure-consumer-sample

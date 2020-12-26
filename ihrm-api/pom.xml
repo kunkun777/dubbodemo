@@ -28,7 +28,7 @@
             <version>0.6.0</version>
         </dependency>
 
-<!--        为了注解-->
+        <!--为了注解-->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
