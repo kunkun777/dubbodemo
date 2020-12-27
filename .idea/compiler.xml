@@ -17,6 +17,7 @@
         <module name="ihrm-system" />
         <module name="userservice2" />
         <module name="ihrm-attendance" />
+        <module name="ihrm-audit" />
         <module name="ihrm-social-securitys" />
       </profile>
     </annotationProcessing>
@@ -28,6 +29,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ihrm-api" options="-parameters" />
       <module name="ihrm-attendance" options="-parameters" />
+      <module name="ihrm-audit" options="-parameters" />
       <module name="ihrm-company" options="-parameters" />
       <module name="ihrm-employee" options="-parameters" />
       <module name="ihrm-salarys" options="-parameters" />

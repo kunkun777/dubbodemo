@@ -17,6 +17,7 @@
         <module>ihrm-social-securitys</module>
         <module>ihrm-employee</module>
         <module>ihrm-salarys</module>
+        <module>ihrm-audit</module>
     </modules>
 
     <parent>
