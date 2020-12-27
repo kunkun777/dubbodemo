@@ -22,14 +22,16 @@ spring:
     open-in-view: true
 ######################dubbo##################
 # Dubbo Protocol 提供服务的名字和端口
-
 dubbo:
   protocol:
+    serialization: java
     name: dubbo
     port: 12340
   ## Dubbo Registry 注册中心的地址
   registry:
     address: zookeeper://127.0.0.1:2181
     register: true
+
+
 #  monitor:
 #    address: 127.0.0.1:7002

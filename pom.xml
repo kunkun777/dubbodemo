@@ -12,6 +12,11 @@
     <modules>
         <module>ihrm-api</module>
         <module>ihrm-system</module>
+        <module>ihrm-attendance</module>
+        <module>ihrm-company</module>
+        <module>ihrm-social-securitys</module>
+        <module>ihrm-employee</module>
+        <module>ihrm-salarys</module>
     </modules>
 
     <parent>

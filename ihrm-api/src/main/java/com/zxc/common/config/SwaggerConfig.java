@@ -37,7 +37,7 @@ public class SwaggerConfig {
     @Bean
     public Docket Company_Docket(){
         return new Docket(DocumentationType.SWAGGER_2)
-                .apiInfo(apiInfo("Company-接口文档","关于公司和公司内部的部门相应的接口，只做了相应的CURD"))
+                .apiInfo(apiInfo("Company","关于公司和公司内部的部门相应的接口，只做了相应的CURD"))
                 .select()
                 .apis(RequestHandlerSelectors.any())
                 .paths(PathSelectors.ant("/company/**"))
@@ -49,7 +49,7 @@ public class SwaggerConfig {
     @Bean
     public Docket System_Docket(){
         return new Docket(DocumentationType.SWAGGER_2)
-                .apiInfo(apiInfo("System-接口文档","关于系统和部分用户操作的接口，主要远程调用了Company的接口"))
+                .apiInfo(apiInfo("System","关于系统和部分用户操作的接口，主要远程调用了Company的接口"))
                 .select()
                 .apis(RequestHandlerSelectors.any())
                 .paths(PathSelectors.ant("/sys/**"))
@@ -57,6 +57,38 @@ public class SwaggerConfig {
                 .groupName("System-V1.0")
                 .pathMapping("/");
     }
-
-
+    @Bean
+    public Docket Social_Security_Docket(){
+        return new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(apiInfo("Social_Security","关于员工社保的，目前调用了system的远程接口"))
+                .select()
+                .apis(RequestHandlerSelectors.any())
+                .paths(PathSelectors.ant("/social_securitys/**"))
+                .build()
+                .groupName("social_security-V1.0")
+                .pathMapping("/");
+    }
+    @Bean
+    public Docket Employee_Docket(){
+        return new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(apiInfo("Employee","关于公司的接口"))
+                .select()
+                .apis(RequestHandlerSelectors.any())
+                .paths(PathSelectors.ant("/employees/**"))
+                .build()
+                .groupName("Employee-V1.0")
+                .pathMapping("/");
+    }
+    @Bean
+    public Docket Attendance_Docket(){
+        return new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(apiInfo("Attendance","关于参与者的接口"))
+                .select()
+                .apis(RequestHandlerSelectors.any())
+                .paths(PathSelectors.ant("/attendances/**"))
+//                .paths(PathSelectors.ant("/cfg/**"))
+                .build()
+                .groupName("Attendances-V1.0")
+                .pathMapping("/");
+    }
 }

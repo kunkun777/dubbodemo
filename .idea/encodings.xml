@@ -3,7 +3,11 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ihrm-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ihrm-attendance" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ihrm-company" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ihrm-employee" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ihrm-salarys" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ihrm-social-securitys" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ihrm-system" charset="UTF-8" />
   </component>
 </project>

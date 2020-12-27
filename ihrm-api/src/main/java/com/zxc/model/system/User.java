@@ -1,10 +1,12 @@
 package com.zxc.model.system;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.zxc.model.poi.ExcelAttribute;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.context.annotation.Lazy;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -127,10 +129,11 @@ public class User implements Serializable {
      *  JsonIgnore
      *     : 忽略json转化
      */
+    @JsonManagedReference
     @JsonIgnore
-    @ManyToMany
+    @ManyToMany(fetch=FetchType.EAGER)
     @JoinTable(name="pe_user_role",joinColumns={@JoinColumn(name="user_id",referencedColumnName="id")},
             inverseJoinColumns={@JoinColumn(name="role_id",referencedColumnName="id")}
     )
-    private Set<Role> roles = new HashSet<Role>();//用户与角色   多对多
+    private Set<Role> roles = new HashSet<>();//用户与角色   多对多
 }

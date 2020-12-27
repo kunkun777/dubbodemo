@@ -17,7 +17,6 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Archive implements Serializable {
-
     private static final long serialVersionUID = -7883369133555989567L;
 
 	public Archive(String companyId, String yearMonth) {

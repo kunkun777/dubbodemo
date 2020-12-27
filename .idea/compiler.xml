@@ -7,13 +7,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="ihrm-salarys" />
+        <module name="userservice1" />
         <module name="ihrm-company" />
         <module name="ihrm-api" />
         <module name="userweb" />
+        <module name="ihrm-employee" />
         <module name="userapi" />
         <module name="ihrm-system" />
         <module name="userservice2" />
-        <module name="userservice1" />
+        <module name="ihrm-attendance" />
+        <module name="ihrm-social-securitys" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
@@ -23,7 +27,11 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ihrm-api" options="-parameters" />
+      <module name="ihrm-attendance" options="-parameters" />
       <module name="ihrm-company" options="-parameters" />
+      <module name="ihrm-employee" options="-parameters" />
+      <module name="ihrm-salarys" options="-parameters" />
+      <module name="ihrm-social-securitys" options="-parameters" />
       <module name="ihrm-system" options="-parameters -verbose -bootclasspath &quot;C:/Program Files/Java/jdk1.8.0_241/jre/lib/rt.jar;C:/Program Files/Java/jdk1.8.0_241/jre/lib/jce.jar&quot;" />
       <module name="ihrmsystem" options="" />
     </option>
